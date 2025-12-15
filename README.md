@@ -302,7 +302,7 @@ This example shows the installation of ROS 2 Jazzy and Gazebo Harmonic which is 
             source /opt/ros/jazzy/setup.bash
             ! [ $(apt list --installed gz-harmonic) ]
             ros2 pkg list | grep ros_gz
-            gz sim --version | grep 'version 8.[0-9*].[0-9*]'
+            gz sim --version | grep -E 'version 8\.[0-9]+\.[0-9]+'
 ```
 
 - *Installing ROS 2 Kilted with Gazebo Ionic*
@@ -336,7 +336,7 @@ This example shows the installation of ROS 2 Kilted and Gazebo Ionic. Kilted use
             source /opt/ros/kilted/setup.bash
             ! [ $(apt list --installed gz-ionic) ]
             ros2 pkg list | grep ros_gz
-            gz sim --version | grep 'version 9.[0-9*].[0-9*]'
+            gz sim --version | grep -E 'version 9\.[0-9]+\.[0-9]+'
 ```
 
 ### macOS
@@ -348,7 +348,7 @@ This workflow shows how to install Gazebo on a macOS worker using the Homebrew p
 ```yaml
   jobs:
     test_gazebo:
-      runs-on: macos-13
+      runs-on: macos-15
       steps:
         - uses: actions/checkout@v4
         - uses: actions/setup-node@v4.0.2
