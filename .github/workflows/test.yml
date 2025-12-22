@@ -25,7 +25,7 @@ jobs:
           - ubuntu-22.04
           - ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -45,7 +45,7 @@ jobs:
           - ubuntu:jammy
           - ubuntu:noble
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -66,6 +66,7 @@ jobs:
           - fortress
           - harmonic
           - ionic
+          - jetty
         exclude:
           # Gazebo Fortress (Sep 2021 - Sep 2026)
           # Compatible ubuntu distributions: 22.04
@@ -76,8 +77,14 @@ jobs:
           # Compatible ubuntu distributions: 24.04
           - ubuntu_distribution: ubuntu-22.04
             gazebo_distribution: ionic
+
+          # Gazebo Jetty (Sep 2024 - Sep 2026)
+          # Compatible ubuntu distributions: 24.04
+          - ubuntu_distribution: ubuntu-22.04
+            gazebo_distribution: jetty
+
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -124,7 +131,7 @@ jobs:
           - docker_image: ubuntu:jammy
             gazebo_distribution: ionic
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -157,7 +164,7 @@ jobs:
           - ubuntu:jammy
           - ubuntu:noble
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -177,7 +184,7 @@ jobs:
     container:
       image: ubuntu:noble
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -186,7 +193,7 @@ jobs:
       - name: 'Check Gazebo installation on Ubuntu runner'
         uses: ./
         with:
-          required-gazebo-distributions: 'ionic'
+          required-gazebo-distributions: 'jetty'
           use-gazebo-nightly: 'true'
       - name: 'Test Gazebo installation'
         run: 'gz sim --versions'
@@ -207,7 +214,7 @@ jobs:
           # macOS Tahoe (not available in GH)
           # macos-16
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -224,7 +231,7 @@ jobs:
     name: 'Install Gazebo on Windows'
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -249,7 +256,7 @@ jobs:
     container:
       image: ubuntu:jammy
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -278,7 +285,7 @@ jobs:
     container:
       image: ubuntu:jammy
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -307,7 +314,7 @@ jobs:
     container:
       image: ubuntu:noble
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
@@ -337,7 +344,7 @@ jobs:
     container:
       image: ubuntu:noble
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: false
       - uses: actions/setup-node@v6.0.0
